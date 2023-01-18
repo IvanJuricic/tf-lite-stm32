@@ -1,0 +1,9 @@
+../X-CUBE-AI/App/sine_approx.c:363:9:sine_approx_configure_activations	24	static
+../X-CUBE-AI/App/sine_approx.c:394:9:sine_approx_configure_weights	24	static
+../X-CUBE-AI/App/sine_approx.c:433:9:ai_sine_approx_get_info	136	static
+../X-CUBE-AI/App/sine_approx.c:480:10:ai_sine_approx_get_error	16	static
+../X-CUBE-AI/App/sine_approx.c:486:10:ai_sine_approx_create	24	static
+../X-CUBE-AI/App/sine_approx.c:496:11:ai_sine_approx_destroy	16	static
+../X-CUBE-AI/App/sine_approx.c:502:9:ai_sine_approx_init	24	static
+../X-CUBE-AI/App/sine_approx.c:519:8:ai_sine_approx_run	24	static
+../X-CUBE-AI/App/sine_approx.c:526:8:ai_sine_approx_forward	16	static
