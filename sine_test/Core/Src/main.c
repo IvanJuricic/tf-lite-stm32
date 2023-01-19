@@ -133,15 +133,14 @@ int main(void)
   if (ai_err.type != AI_ERROR_NONE)
   {
 	  buf_len = sprintf(buff, "Error: could not create NN instance\r\n");
-	  print(buff);
+	  HAL_UART_Transmit(&huart1, (uint8_t *)buff, buf_len, 100);
 	  while(1);
   }
 
   if (!ai_sine_approx_init(sine_model, &ai_params))
   {
     buf_len = sprintf(buff, "Error: could not initialize NN\r\n");
-    //HAL_UART_Transmit(&huart1, (uint8_t *)buff, buf_len, 100);
-    print(buff);
+    HAL_UART_Transmit(&huart1, (uint8_t *)buff, buf_len, 100);
     while(1);
   }
 
@@ -156,9 +155,6 @@ int main(void)
 	  ((ai_float *)in_data)[i] = (ai_float)2.0f;
 	}
 
-	// Get current timestamp
-	//timestamp = htim2.Instance->CNT;
-
 	// Perform inference
 	nbatch = ai_sine_approx_run(sine_model, &ai_input[0], &ai_output[0]);
 	if (nbatch != 1) {
@@ -170,7 +166,7 @@ int main(void)
 	y_val = ((float *)out_data)[0];
 
 	// Print output of neural network along with inference time (microseconds)
-	buf_len = sprintf(buff,"Output: %f | Duration: %\r\n",y_val);
+	buf_len = sprintf(buff,"Output: %f \r\n",y_val);
 	HAL_UART_Transmit_IT(&huart1, (uint8_t *)buff, buf_len);
 
 	// Wait before doing it again
